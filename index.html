@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Just One Question 💕</title>
+
+<!-- Handwritten Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #ffe6f2, #ffbcd9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pacifico', cursive;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 28px;
+  border-radius: 22px;
+  text-align: center;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 18px 45px rgba(255, 105, 180, 0.35);
+}
+
+h1 {
+  color: #c2185b;
+  font-size: 26px;
+  margin-bottom: 28px;
+}
+
+.buttons {
+  position: relative;
+  height: 140px;
+}
+
+button {
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  transition: transform 0.3s ease;
+  font-family: 'Pacifico', cursive;
+}
+
+#yes {
+  background: #ff69b4;
+  color: white;
+  left: 30px;
+}
+
+#no {
+  background: #f3a7c4;
+  color: white;
+  right: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Will you be my Valentine? 💖</h1>
+
+  <div class="buttons">
+    <button id="yes">YES 💕</button>
+    <button id="no">NO 🙈</button>
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+let yesScale = 1;
+
+// NO button escape + YES grows
+function escapeNo() {
+  const x = Math.random() * 220 - 110;
+  const y = Math.random() * 100 - 50;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+  yesScale += 0.15;
+  yesBtn.style.transform = `scale(${yesScale})`;
+}
+
+// Hover (desktop)
+noBtn.addEventListener("mouseover", escapeNo);
+
+// Touch (mobile)
+noBtn.addEventListener("touchstart", escapeNo);
+
+// YES click → love page
+yesBtn.addEventListener("click", () => {
+  window.location.href = "love.html";
+});
+</script>
+
+</body>
+</html>
+
